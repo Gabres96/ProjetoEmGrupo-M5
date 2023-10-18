@@ -1,7 +1,7 @@
-const Logo = () => {
+export const Logo = () => {
   return (
-    <div>Logo</div>
+    <div>
+      <img src="./src/assets/logo.jpg" alt="" />
+    </div>
   )
 }
-
-export default Logo
