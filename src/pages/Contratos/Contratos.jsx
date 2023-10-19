@@ -1,6 +1,10 @@
+import ContratoLista from "../../components/ContratoLista/ContratoLista"
+
 const Contratos = () => {
   return (
-    <div>Contratos</div>
+    <>
+      <ContratoLista />
+    </>
   )
 }
 
