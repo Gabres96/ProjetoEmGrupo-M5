@@ -1,9 +1,12 @@
-import  Header  from "../../components/Header/Header"
+import ContratoLista from '../../components/ContratoLista/ContratoLista';
+import Layout from './../../components/Layout/Layout';
 
 export const Home = () => {
   return (
-    <>
-      <Header />
-    </>
+   <>
+      <Layout>
+        <ContratoLista/>
+      </Layout>
+   </>
   )
 }
