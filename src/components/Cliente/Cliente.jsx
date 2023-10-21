@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarCLiente, handleAbrirModalDelete }) => {
+const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarCliente, handleAbrirModalDelete }) => {
 
   return (
     <StylesCliente>
@@ -31,7 +31,7 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarCLient
           </tr>
         </tbody>
       </table>
-      <button onClick={() => handleEditarCliente({ id, nome, email, cnpj, endereco })}>Editar</button>
+      <button onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}>Editar</button>
       <button onClick={() => handleAbrirModalDelete(id)} >Excluir</button>
     </StylesCliente>
   )

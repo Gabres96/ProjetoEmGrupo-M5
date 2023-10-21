@@ -35,7 +35,7 @@ export const postCliente = async (body) => {
 
 export const putCliente = async ( idCliente, body) => {
   try {
-    const resposta = await api.put(`/cliente/editar/${idCliente}`, body)
+    const resposta = await api.put(`/cliente/${idCliente}`, body)
     return resposta.data
   } catch (error) {
     if (error.response) {
