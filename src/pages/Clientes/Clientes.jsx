@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { StylesCliente } from "./clientes.styles.js";
 import Cliente from "../../components/Cliente/Cliente.jsx";
-import { getClientes } from "../../service/api.js";
+import { getClientes, postCliente } from "../../service/api.js";
 import Modal from './../../components/Modal/Modal';
 import Button from './../../components/Button/Button';
 
@@ -9,13 +9,20 @@ const Clientes = () => {
   // const params = useParams()
   const [clientes, setClientes] = useState([]);
   const [modalTaAberto, setModalTaAberto] = useState(false)
-  const [idCliente, setIdCliente] = useState()
-  const [valorNome, setValorNome] = useState()
-  const [valorTelefone, setValorTelefone] = useState()
-  const [valorEmail, setValorEmail] = useState()
-  const [valorCnpj, setValorCnpj] = useState()
-  const [valorEndereco, setValorEndereco] = useState()
+  const [data, setData] = useState({
+    nome: '',
+    telefone: '',
+    email: '',
+    cnpj: '',
+    endereco: ''
+  })
+  const [infosNotificacao, setInfosNotificacao] = useState({
+    tipo: '',
+    texto: ''
+  })
   const [eEdicao, setEEdicao] = useState(false)
+
+  const valueInput = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
   const handleGetClientes = async () => {
     try {
@@ -26,33 +33,13 @@ const Clientes = () => {
     }
   }
 
-  function handleEditarCliente(cliente) {
-    setEEdicao(true)
-    setValorNome(cliente.nome)
-    setValorTelefone(cliente.telefone)
-    setValorEmail(cliente.email)
-    setValorCnpj(cliente.cnpj)
-    setValorEndereco(cliente.endereco)
-    console.log(cliente)
-    setModalTaAberto(true)
-  }
-
-  function handlePutTransacao() {
-    setEEdicao(false)
-    setModalTaAberto(false)
-    handleGetClientes()
-  }
-
-
-
-  // function handleAbrirModalDelete(id) {
-  //   setIdCliente(id)
-  //   setModalTaAberto(true)
-  // }
-
-  // function fechaModal() {
-  //   setModalTaAberto(false)
-  // }
+ async function handlePostCliente() {
+  const resposta = await postCliente(data)
+  setInfosNotificacao({
+    tipo: resposta.success ? 'success' : 'error',
+    texto: resposta.message
+  })
+ }
 
   useEffect(() => {
     handleGetClientes()
@@ -78,27 +65,27 @@ const Clientes = () => {
                 cnpj={cliente.cnpj}
                 endereco={cliente.endereco}
                 // handleAbrirModalDelete={handleAbrirModalDelete}
-                handleEditarCliente={handleEditarCliente}
+                // handleEditarCliente={handleEditarCliente}
               />
             )
-            ))}
+          ))}
         </ul>
       </StylesCliente>
       {/* MODAL DE CRIAR E EDITAR A TRANSAÇÃO  */}
       <Modal title={"Adicionar Clientes"} open={modalTaAberto} fechaModal={() => setModalTaAberto(false)}>
 
         <label htmlFor="">Nome</label>
-        <input type="text" value={valorNome} onChange={(evento) => setValorNome(evento.target.value)} />
+        <input type="text" name="nome" onChange={valueInput} />
         <label htmlFor="">Fone</label>
-        <input type="text" value={valorTelefone} onChange={(evento) => setValorTelefone(evento.target.value)} />
+        <input type="text" name="telefone" onChange={valueInput} />
         <label htmlFor="">E-mail</label>
-        <input type="text" value={valorEmail} onChange={(evento) => setValorEmail(evento.target.value)} />
+        <input type="text" name="email" onChange={valueInput} />
         <label htmlFor="">CNPJ</label>
-        <input type="text" value={valorCnpj} onChange={(evento) => setValorCnpj(evento.target.value)} />
+        <input type="text" name="cnpj" onChange={valueInput} />
         <label htmlFor="">Endereço</label>
-        <input type="text" value={valorEndereco} onChange={(evento) => setValorEndereco(evento.target.value)} />
+        <input type="text" name="endereco" onChange={valueInput} />
 
-        {/* <button onClick={eEdicao ? handlePutTransacao : handleSalvarTransacao}>{eEdicao ? 'Salvar alterações' : 'ADICIONAR'}</button> */}
+        <button onClick={handlePostCliente}>{'ADICIONAR'}</button>
       </Modal>
     </>
   )
