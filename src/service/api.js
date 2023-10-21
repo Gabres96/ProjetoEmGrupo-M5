@@ -15,7 +15,7 @@ export const getClientes = async () => {
 
 export const postCliente = async (body) => {
   try {
-    const resposta = await api.post('/cliente', body)
+    const resposta = await api.post('/put/cliente', body)
     console.log(resposta.data)
     return resposta.data
   } catch (error) {
@@ -35,7 +35,7 @@ export const postCliente = async (body) => {
 
 export const putCliente = async ( idCliente, body) => {
   try {
-    const resposta = await api.put(`/cliente/${idCliente}`, body)
+    const resposta = await api.put(`/cliente/editar/${idCliente}`, body)
     return resposta.data
   } catch (error) {
     if (error.response) {
@@ -53,7 +53,7 @@ export const putCliente = async ( idCliente, body) => {
 
 export const deleteCliente = async (idCliente) => {
   try {
-    const resposta = await api.delete(`/cliente/deletar/${idCliente}`)
+    const resposta = await api.delete(`/cliente/delete/${idCliente}`)
     return resposta.data
   } catch (error) {
     if (error.response) {
@@ -68,5 +68,4 @@ export const deleteCliente = async (idCliente) => {
     }
   }
 }
-
 export default api

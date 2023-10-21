@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { StylesCliente } from "./clientes.styles.js";
 import Cliente from "../../components/Cliente/Cliente.jsx";
-import { getClientes, postCliente, putCliente } from "../../service/api.js";
+import { deleteCliente, getClientes, postCliente, putCliente } from "../../service/api.js";
 import Modal from './../../components/Modal/Modal';
 import Button from './../../components/Button/Button';
+import Notificacao from './../../components/Notificacao/Notificacao';
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
   const [modalTaAberto, setModalTaAberto] = useState(false)
+  const [modalDelete, setModalDelete] = useState(false)
+  const [idCliente, setIdCliente] = useState('')
   const [data, setData] = useState({
     nome: '',
     telefone: '',
@@ -19,7 +22,9 @@ const Clientes = () => {
     tipo: '',
     texto: ''
   })
-  const [eEdicao, setEEdicao] = useState(false)
+  const [eEdicao, setEEdicao] = useState(false)  
+  const [abrirNotificacao, setAbrirNotificacao] = useState(false)
+
 
   const valueInput = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -49,6 +54,18 @@ const Clientes = () => {
   })
  }
 
+ async function handleDeleteCliente() {
+  const resposta = await deleteCliente(idCliente)
+  console.log(resposta)
+  setModalDelete(false)
+  handleGetClientes()
+  setInfosNotificacao({
+    tipo: resposta.success ? 'success' : 'error',
+    texto: resposta.message
+  })
+  setAbrirNotificacao(true)
+ }
+
  function handleEditarCliente(cliente) {
   setModalTaAberto(true)
   setEEdicao(true)
@@ -59,6 +76,13 @@ const Clientes = () => {
     cnpj: cliente.cnpj,
     endereco: cliente.endereco
   })
+  console.log(cliente)
+ }
+
+ function handleAbrirModalDelete(idCliente) {
+  setModalDelete(true)
+  setIdCliente(idCliente)
+  console.log(idCliente)
  }
 
   useEffect(() => {
@@ -77,14 +101,14 @@ const Clientes = () => {
           {clientes.length === 0 ? (<p>Carragando</p>) : (
             clientes.map((cliente) => (
               <Cliente
-                key={cliente.id}
-                id={cliente.id}
+                key={cliente._id}
+                id={cliente._id}
                 nome={cliente.nome}
                 telefone={cliente.telefone}
                 email={cliente.email}
                 cnpj={cliente.cnpj}
                 endereco={cliente.endereco}
-                // handleAbrirModalDelete={handleAbrirModalDelete}
+                handleAbrirModalDelete={handleAbrirModalDelete}
                 handleEditarCliente={handleEditarCliente}
               />
             )
@@ -106,6 +130,21 @@ const Clientes = () => {
 
         <button onClick={eEdicao ? handlePutCliente : handlePostCliente}>{eEdicao ? 'Salvar alterações' : 'ADICIONAR'}</button>
       </Modal>
+      {/* MODAL - EXCLUIR A TRANSACAO */}
+      <Modal open={modalDelete} title={'Excluir'} fechaModal={() => setModalDelete(false)}>
+        <h3>Você deseja realmente excluir essa transação?</h3>
+        <Button texto={'sim'} variant={'primary'} onClick={handleDeleteCliente} />
+      </Modal>
+      {
+        abrirNotificacao && <Notificacao
+          texto={infosNotificacao.texto}
+          tipo={infosNotificacao.tipo}
+          fecharNotificacao={() => setAbrirNotificacao(false)}
+          open={abrirNotificacao}
+        />
+      }
+
+     
     </>
   )
 }
