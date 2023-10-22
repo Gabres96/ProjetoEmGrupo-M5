@@ -31,16 +31,11 @@ const Modal = ({ open, title, fechaModal, children }) => {
 export default Modal;
 
 const StylesModal = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9;
-  background: rgba(38, 50, 56, 0.6);
+  position: fixed; /* Ou 'absolute' dependendo de suas necessidades */
+  top: 50%; /* Posição vertical no meio da tela */
+  left: 50%; /* Posição horizontal no meio da tela */
+  transform: translate(-50%, -50%); /* Centraliza o modal na tela */
+  background-color: rgba(0, 0, 0, 0.7);
 `;
 
 const StylesContentModal = styled.div`
