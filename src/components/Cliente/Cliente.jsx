@@ -31,13 +31,14 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
           </tr>
         </tbody>
       </table>
-      <button onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}>Editar</button>
-      <button onClick={() => handleAbrirModalDelete(id)} >Excluir</button>
+      <div className={'btn'}>
+        <button onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}>Editar</button>
+        <button onClick={() => handleAbrirModalDelete(id)} >Excluir</button>
+      </div>
     </StylesCliente>
   )
 
 }
-  
 
 export default Cliente
 
@@ -50,8 +51,9 @@ const StylesCliente = styled.li`
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   background-color: ${props => props.theme.white50};;
-
-  > .valor{
-    font-weight: bold;
+  >.btn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 `

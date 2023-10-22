@@ -1,12 +1,21 @@
 import styled from 'styled-components'
 
+export const Topo = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+`
+
 export const StylesCliente = styled.main`
   width: 100%;
   height: max-content;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 24px;
   padding: 24px;
+  overflow-x: hidden;
 
   > section {
     width: 100%;
@@ -17,16 +26,15 @@ export const StylesCliente = styled.main`
 
   > ul {
     width: 100%;
-    height: max-content;
     background-color: ${(props) => props.theme.green50};
     border-radius: 8px;
-    overflow-y: auto;
     padding: 24px;
     gap: 12px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     > li {
-      width: 100%;
+      width: 30%;
       padding: 12px;
       display: flex;
       justify-content: space-between;
@@ -36,6 +44,5 @@ export const StylesCliente = styled.main`
       background-color: ${props => props.theme.white50};
     }
   }
-
 
 `

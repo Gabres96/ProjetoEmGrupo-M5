@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StylesCliente } from "./clientes.styles.js";
+import { StylesCliente, Topo } from "./clientes.styles.js";
 import Cliente from "../../components/Cliente/Cliente.jsx";
 import { deleteCliente, getClientes, postCliente, putCliente } from "../../service/api.js";
 import Modal from './../../components/Modal/Modal';
@@ -111,13 +111,16 @@ const Clientes = () => {
 
   return (
     <>
+    <Topo>
+      <h2>Clientes</h2>
+      <Button
+      onClick={() => setModalCriarCliente(true)}
+      texto={"Adicionar Cliente"}
+      variant='primary' />
+    </Topo>
       <StylesCliente>
-        <h2>Clientes</h2>
         <ul>
-          <Button
-            onClick={() => setModalCriarCliente(true)}
-            texto={"Adicionar Cliente"}
-            variant='primary' />
+
           {clientes.length === 0 ? (<p>Carragando</p>) : (
             clientes.map((cliente) => (
               <Cliente
@@ -135,6 +138,7 @@ const Clientes = () => {
           ))}
         </ul>
       </StylesCliente>
+
       {/* MODAL DE CRIAR CLIENTE  */}
       <Modal title={'Adicionar Cliente'} open={modalCriarCliente} fechaModal={() => setModalCriarCliente(false)}>
         <label htmlFor="">Nome</label>
@@ -150,7 +154,6 @@ const Clientes = () => {
 
         <button onClick={handlePostCliente}>{'ADICIONAR'}</button>
       </Modal>
-
       {/* MODAL DE EDITAR CLIENTE  */}
       <Modal title={'Editar Cliente'} open={modalEditarCliente} fechaModal={() => setModalEditarCliente(false)}>
         <label htmlFor="">Nome</label>
