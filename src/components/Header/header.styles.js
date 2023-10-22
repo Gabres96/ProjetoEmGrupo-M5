@@ -4,11 +4,10 @@ export const StyleHeader = styled.header`
 box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   position: relative;
   top: 0;
   background-color: ${(props) => props.theme.gray100};  
-  height: 160px;
+  height: 130px;
   padding: 30px;
   width: 100vw;
   
@@ -18,7 +17,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
     font-size: 50px;
     display: flex;
     margin-left: 20px;
-    background-color: ${(props) => props.theme.gray100};
+    background-color: transparent;
     color: ${(props) => props.theme.white};
   }
   .link, nav, ul, li, nav ul li:hover {
