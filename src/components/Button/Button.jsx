@@ -25,22 +25,22 @@ const StyleButton = styled.button`
   transition: background .3s;
 
   &:hover{
-    background-color: ${(props) => props.theme.blue500};
+    background-color: ${(props) => props.theme.purple200};
   }
 `;
 
 
 const PrimaryButton = styled(StyleButton)`
   width: ${props => props.width ? props.width : 'fit-content'};
-   background: ${(props) => props.theme.blue700};
+   background-color: ${(props) => props.theme.purple600};
    border: none; 
    color: ${(props) => props.theme.white};
    :hover{
-    background-color: ${(props) => props.theme.blue500};
+    background-color: ${(props) => props.theme.purple600};
   }
 `
 const SecondaryButton = styled(StyleButton)`
    background: transparent;
-   border: 1px solid ${(props) => props.theme.blue700}; 
-   color: ${(props) => props.theme.blue700};
+   border: 1px solid ${(props) => props.theme.purple600}; 
+   color: ${(props) => props.theme.purple200};
 `
