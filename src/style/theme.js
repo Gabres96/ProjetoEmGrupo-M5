@@ -3,7 +3,7 @@ export const tema = {
   white: '#f8f8ff',
   blue500: '#457B9D',
   blue100: '#D0E8E8',  
-
+  gray100: '#3c3c3c',
   blue200: '#A8DADC',  
   blue700: '#1D3557',
   red700: '#A3151A',

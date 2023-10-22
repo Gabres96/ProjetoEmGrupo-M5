@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Logo = () => {
   return (
     <StyleLogo>
-      <img className={"logo"} src="./src/assets/logo.jpg" alt="" />
+      <img className={"logo"} src="./src/assets/logo_png.png" alt="" />
     </StyleLogo>
   );
 };
@@ -15,6 +15,7 @@ const StyleLogo = styled.div`
   display: flex;
   img {
     width: 100px;
+    background-color: ${(props) => props.theme.gray100};
   }
 
   
