@@ -11,11 +11,11 @@ const Logo = () => {
 export default Logo;
 
 const StyleLogo = styled.div`
-  background-color: ${(props) => props.theme.gray100};
+  background-color: transparent;
   display: flex;
   img {
     width: 100px;
-    background-color: ${(props) => props.theme.gray100};
+    background-color: transparent;
   }
 
   
