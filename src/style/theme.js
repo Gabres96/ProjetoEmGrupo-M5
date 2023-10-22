@@ -12,4 +12,5 @@ export const tema = {
   green700: '#068B24',
   green500: '#34673F',
   green50: '#E8F3EB',
+  purple: '#7C3AED',
 }
