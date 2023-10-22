@@ -10,6 +10,19 @@ export const StyleContatoLista = styled.section`
     font-weight: 500;
     margin-bottom: 10px;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: ${props => props.theme.gray100};
+    height: 86.5vh;
+}
+
+h2{
+    font-family: 'Roboto Mono', monospace;
+}
 
 form .field,
 form .fields .field {

@@ -4,6 +4,7 @@ const ContratoLista = ({id, cliente, status, dataInicio, dataTermino, valor, han
 
   return (
     <StyleContatoLista>
+      <div className={"container"}>
       <form>
         <h2>Lista de Contratos</h2>
           <div className={"fields"}>
@@ -29,6 +30,7 @@ const ContratoLista = ({id, cliente, status, dataInicio, dataTermino, valor, han
               <button type="submit">Enviar</button>
           </div>
       </form>
+      </div>
     </StyleContatoLista>
   );
 };
