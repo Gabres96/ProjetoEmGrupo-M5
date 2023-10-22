@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://apidatadynamo.onrender.com',
+  baseURL: 'http://localhost:3000',
   headers: {
     'Content-type': 'application/json',
   }
@@ -15,7 +15,7 @@ export const getClientes = async () => {
 
 export const postCliente = async (body) => {
   try {
-    const resposta = await api.post('/put/cliente', body)
+    const resposta = await api.post('/cliente/criar', body)
     console.log(resposta.data)
     return resposta.data
   } catch (error) {
@@ -32,10 +32,9 @@ export const postCliente = async (body) => {
   }
 }
 
-
-export const putCliente = async ( idCliente, body) => {
+export const putCliente = async (idCliente, body) => {
   try {
-    const resposta = await api.put(`/cliente/editar/${idCliente}`, body)
+    const resposta = await api.put(`/cliente/edit/${idCliente}`, body)
     return resposta.data
   } catch (error) {
     if (error.response) {

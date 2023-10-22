@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { StylesCliente } from "./clientes.styles.js";
 import Cliente from "../../components/Cliente/Cliente.jsx";
-import { deleteCliente, getClientes, postCliente, putCliente } from "../../service/api.js";
+import { getClientes, postCliente, putCliente } from "../../service/api.js";
 import Modal from './../../components/Modal/Modal';
 import Button from './../../components/Button/Button';
 import Notificacao from './../../components/Notificacao/Notificacao';
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
-  const [modalTaAberto, setModalTaAberto] = useState(false)
-  const [modalDelete, setModalDelete] = useState(false)
-  const [idCliente, setIdCliente] = useState('')
+  const [modalCriarCliente, setModalCriarCliente] = useState(false)
+  const [modalEditarCliente, setModalEditarCliente] = useState(false)
   const [data, setData] = useState({
     nome: '',
     telefone: '',
@@ -18,13 +17,12 @@ const Clientes = () => {
     cnpj: '',
     endereco: ''
   })
+  const [idCliente, setIdCliente] = useState('')
   const [infosNotificacao, setInfosNotificacao] = useState({
     tipo: '',
     texto: ''
   })
-  const [eEdicao, setEEdicao] = useState(false)  
   const [abrirNotificacao, setAbrirNotificacao] = useState(false)
-
 
   const valueInput = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -37,54 +35,52 @@ const Clientes = () => {
     }
   }
 
- async function handlePostCliente() {
-  const resposta = await postCliente(data)
-  setInfosNotificacao({
-    tipo: resposta.success ? 'success' : 'error',
-    texto: resposta.message
-  })
-  handleGetClientes()
- }
+  const handlePostCliente = async () => {   
+    try {
+      await postCliente(data)
+      setModalCriarCliente(false)
+      handleGetClientes()
+      setInfosNotificacao({
+        tipo: 'sucesso',
+        texto: 'Cliente adicionado com sucesso'
+      })
+      handleGetClientes()
+      setAbrirNotificacao(true)
+      setModalCriarCliente(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
- async function handlePutCliente(id, body) {
-  const resposta = await putCliente(id, body)
-  setInfosNotificacao({
-    tipo: resposta.success ? 'success' : 'error',
-    texto: resposta.message
-  })
- }
+  const handleEditarCliente = async (cliente) => {
+    setData({
+      id: cliente.id,
+      nome: cliente.nome,
+      telefone: cliente.telefone,
+      email: cliente.email,
+      cnpj: cliente.cnpj,
+      endereco: cliente.endereco
+    })
+    setIdCliente(cliente.id)
+    setModalEditarCliente(true)
+  }
 
- async function handleDeleteCliente() {
-  const resposta = await deleteCliente(idCliente)
-  console.log(resposta)
-  setModalDelete(false)
-  handleGetClientes()
-  setInfosNotificacao({
-    tipo: resposta.success ? 'success' : 'error',
-    texto: resposta.message
-  })
-  setAbrirNotificacao(true)
- }
-
- function handleEditarCliente(cliente) {
-  setModalTaAberto(true)
-  setEEdicao(true)
-  setData({
-    nome: cliente.nome,
-    telefone: cliente.telefone,
-    email: cliente.email,
-    cnpj: cliente.cnpj,
-    endereco: cliente.endereco
-  })
-  console.log(cliente)
- }
-
- function handleAbrirModalDelete(idCliente) {
-  setModalDelete(true)
-  setIdCliente(idCliente)
-  console.log(idCliente)
- }
-
+  const handlePutCliente = async () => {
+    try {
+      await putCliente(idCliente, data)
+      setModalEditarCliente(false)
+      handleGetClientes()
+      setInfosNotificacao({
+        tipo: 'sucesso',
+        texto: 'Cliente atualizado com sucesso'
+      })
+      handleGetClientes()
+      setAbrirNotificacao(true)
+      setModalEditarCliente(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
     handleGetClientes()
   }, [])
@@ -95,7 +91,7 @@ const Clientes = () => {
         <h2>Clientes</h2>
         <ul>
           <Button
-            onClick={() => setModalTaAberto(true)}
+            onClick={() => setModalCriarCliente(true)}
             texto={"Adicionar Cliente"}
             variant='primary' />
           {clientes.length === 0 ? (<p>Carragando</p>) : (
@@ -108,32 +104,43 @@ const Clientes = () => {
                 email={cliente.email}
                 cnpj={cliente.cnpj}
                 endereco={cliente.endereco}
-                handleAbrirModalDelete={handleAbrirModalDelete}
+                // handleAbrirModalDelete={handleAbrirModalDelete}
                 handleEditarCliente={handleEditarCliente}
               />
             )
           ))}
         </ul>
       </StylesCliente>
-      {/* MODAL DE CRIAR E EDITAR A TRANSAÇÃO  */}
-      <Modal title={eEdicao ? 'Editar cliente' : 'Adicionar Cliente'} open={modalTaAberto} fechaModal={() => setModalTaAberto(false)}>
+      {/* MODAL DE CRIAR CLIENTE  */}
+      <Modal title={'Adicionar Cliente'} open={modalCriarCliente} fechaModal={() => setModalCriarCliente(false)}>
         <label htmlFor="">Nome</label>
-        <input type="text" name="nome" value={eEdicao ? data.nome : ''} onChange={valueInput} />
+        <input type="text" name="nome" onChange={valueInput} />
         <label htmlFor="">Fone</label>
-        <input type="text" name="telefone" value={eEdicao ? data.telefone : ''} onChange={valueInput} />
-        <label htmlFor="">E-mail</label>
-        <input type="text" name="email" value={eEdicao ? data.email : ''} onChange={valueInput} />
+        <input type="fone" name="telefone" onChange={valueInput} />
+        <label htmlFor="">E-mail</label> 
+        <input type="email" name="email" onChange={valueInput} />
         <label htmlFor="">CNPJ</label>
-        <input type="text" name="cnpj" value={eEdicao ? data.cnpj : ''} onChange={valueInput} />
+        <input type="text" name="cnpj" onChange={valueInput} />
         <label htmlFor="">Endereço</label>
-        <input type="text" name="endereco" value={eEdicao ? data.endereco : ''} onChange={valueInput} />
+        <input type="text" name="endereco" onChange={valueInput} />
 
-        <button onClick={eEdicao ? handlePutCliente : handlePostCliente}>{eEdicao ? 'Salvar alterações' : 'ADICIONAR'}</button>
+        <button onClick={handlePostCliente}>{'ADICIONAR'}</button>
       </Modal>
-      {/* MODAL - EXCLUIR A TRANSACAO */}
-      <Modal open={modalDelete} title={'Excluir'} fechaModal={() => setModalDelete(false)}>
-        <h3>Você deseja realmente excluir essa transação?</h3>
-        <Button texto={'sim'} variant={'primary'} onClick={handleDeleteCliente} />
+
+      {/* MODAL DE EDITAR CLIENTE  */}
+      <Modal title={'Editar Cliente'} open={modalEditarCliente} fechaModal={() => setModalEditarCliente(false)}>
+        <label htmlFor="">Nome</label>
+        <input type="text" name="nome" defaultValue={data.nome} onChange={valueInput} />
+        <label htmlFor="">Fone</label>
+        <input type="text" name="telefone" defaultValue={data.telefone} onChange={valueInput} />
+        <label htmlFor="">E-mail</label> 
+        <input type="email" name="email" defaultValue={data.email} onChange={valueInput} />
+        <label htmlFor="">CNPJ</label>
+        <input type="text" name="cnpj" defaultValue={data.cnpj} onChange={valueInput} />
+        <label htmlFor="">Endereço</label>
+        <input type="text" name="endereco" defaultValue={data.endereco} onChange={valueInput} />
+
+        <button onClick={handlePutCliente}>{'EDITAR'}</button>
       </Modal>
       {
         abrirNotificacao && <Notificacao
@@ -143,9 +150,8 @@ const Clientes = () => {
           open={abrirNotificacao}
         />
       }
-
-     
     </>
+    
   )
 }
 
