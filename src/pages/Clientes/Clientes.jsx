@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { StylesCliente } from "./clientes.styles.js";
 import Cliente from "../../components/Cliente/Cliente.jsx";
-import { getClientes, postCliente, putCliente } from "../../service/api.js";
+import { deleteCliente, getClientes, postCliente, putCliente } from "../../service/api.js";
 import Modal from './../../components/Modal/Modal';
 import Button from './../../components/Button/Button';
 import Notificacao from './../../components/Notificacao/Notificacao';
@@ -22,6 +22,7 @@ const Clientes = () => {
     tipo: '',
     texto: ''
   })
+  const [modalDelete, setModalDelete] = useState(false)
   const [abrirNotificacao, setAbrirNotificacao] = useState(false)
 
   const valueInput = (e) => setData({ ...data, [e.target.name]: e.target.value });
@@ -81,6 +82,29 @@ const Clientes = () => {
       console.log(error)
     }
   }
+
+  const handleDeleteCliente = async () => {
+    try {
+      await deleteCliente(idCliente)
+      setModalDelete(false)
+      handleGetClientes()
+      setInfosNotificacao({
+        tipo: 'sucesso',
+        texto: 'Cliente deletado com sucesso'
+      })
+      handleGetClientes()
+      setAbrirNotificacao(true)
+      setModalDelete(false)
+    }catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleAbrirModalDelete = (id) => {
+    setIdCliente(id)
+    setModalDelete(true)
+  }
+
   useEffect(() => {
     handleGetClientes()
   }, [])
@@ -104,7 +128,7 @@ const Clientes = () => {
                 email={cliente.email}
                 cnpj={cliente.cnpj}
                 endereco={cliente.endereco}
-                // handleAbrirModalDelete={handleAbrirModalDelete}
+                handleAbrirModalDelete={handleAbrirModalDelete}
                 handleEditarCliente={handleEditarCliente}
               />
             )
@@ -142,6 +166,11 @@ const Clientes = () => {
 
         <button onClick={handlePutCliente}>{'EDITAR'}</button>
       </Modal>
+      <Modal open={modalDelete} title={'Excluir'} fechaModal={() => setModalDelete(false)}>
+        <h3>Você deseja realmente excluir esse cliente?</h3>
+        <Button texto={'sim'} variant={'primary'} onClick={handleDeleteCliente} />
+      </Modal>
+
       {
         abrirNotificacao && <Notificacao
           texto={infosNotificacao.texto}
