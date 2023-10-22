@@ -11,7 +11,7 @@ const Logo = () => {
 export default Logo;
 
 const StyleLogo = styled.div`
-  background-color: ${(props) => props.theme.header};
+  background-color: ${(props) => props.theme.gray100};
   display: flex;
   img {
     width: 100px;

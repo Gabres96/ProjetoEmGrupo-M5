@@ -1,18 +1,29 @@
 import styled from "styled-components";
 
 export const StyleHeader = styled.header`
-  width: 100vw;
-  padding: 30px;
-  height: 160px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   position: relative;
   top: 0;
-  background-color: ${(props) => props.theme.header};  
+  background-color: ${(props) => props.theme.gray100};  
+  height: 160px;
+  padding: 30px;
+  width: 100vw;
+  
 
+  h1{
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 50px;
+    display: flex;
+    margin-left: 20px;
+    background-color: ${(props) => props.theme.gray100};
+    color: ${(props) => props.theme.white};
+  }
   .link, nav, ul, li, nav ul li:hover {
-    background-color: ${(props) => props.theme.header};
+    background-color: ${(props) => props.theme.gray100};
+    padding-left: 20%;
   }
 
   .link{
@@ -26,6 +37,7 @@ export const StyleHeader = styled.header`
   nav ul {
     display: flex;
     align-items: center;
+    color: ${(props) => props.theme.white};
     gap: 25px;
     font-size: 20px;
   }
@@ -39,7 +51,7 @@ export const StyleHeader = styled.header`
   }
 
   nav ul li:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
   }
 
 `
