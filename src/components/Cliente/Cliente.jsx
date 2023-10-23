@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Button from '../Button/Button'
 const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarCliente, handleAbrirModalDelete }) => {
 
   return (
@@ -32,8 +32,8 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
         </tbody>
       </table>
       <div className={'btn'}>
-        <button onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}>Editar</button>
-        <button onClick={() => handleAbrirModalDelete(id)} >Excluir</button>
+      <Button texto={'editar'} variant={'third'} onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })} />
+        <Button texto={'excluir'} variant={'third'} onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })} >Excluir</Button>
       </div>
     </StylesCliente>
   )
@@ -41,19 +41,3 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
 }
 
 export default Cliente
-
-const StylesCliente = styled.li`
-  width: 100%;
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  background-color: ${props => props.theme.white50};;
-  >.btn {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-`
