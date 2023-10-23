@@ -5,6 +5,7 @@ import { deleteCliente, getClientes, postCliente, putCliente } from "../../servi
 import Modal from './../../components/Modal/Modal';
 import Button from './../../components/Button/Button';
 import Notificacao from './../../components/Notificacao/Notificacao';
+import Input from "../../components/Input/Input.jsx";
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -142,15 +143,15 @@ const Clientes = () => {
       {/* MODAL DE CRIAR CLIENTE  */}
       <Modal title={'Adicionar Cliente'} open={modalCriarCliente} fechaModal={() => setModalCriarCliente(false)}>
         <label htmlFor="">Nome</label>
-        <input type="text" name="nome" onChange={valueInput} />
+        <Input type="text" name="nome" onChange={valueInput} />
         <label htmlFor="">Fone</label>
-        <input type="fone" name="telefone" onChange={valueInput} />
+        <Input type="fone" name="telefone" onChange={valueInput} />
         <label htmlFor="">E-mail</label> 
-        <input type="email" name="email" onChange={valueInput} />
+        <Input type="email" name="email" onChange={valueInput} />
         <label htmlFor="">CNPJ</label>
-        <input type="text" name="cnpj" onChange={valueInput} />
+        <Input type="text" name="cnpj" onChange={valueInput} />
         <label htmlFor="">Endereço</label>
-        <input type="text" name="endereco" onChange={valueInput} />
+        <Input type="text" name="endereco" onChange={valueInput} />
 
         <button onClick={handlePostCliente}>{'ADICIONAR'}</button>
       </Modal>
