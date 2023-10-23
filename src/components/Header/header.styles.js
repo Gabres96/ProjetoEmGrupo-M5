@@ -9,7 +9,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
   background-color: ${(props) => props.theme.gray100};  
   height: 130px;
   padding: 30px;
-  width: 100vw;
+  width: 100%;
   
 
   h1{
