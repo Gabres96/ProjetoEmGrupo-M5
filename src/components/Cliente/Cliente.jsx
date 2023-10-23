@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarCliente, handleAbrirModalDelete }) => {
 
   return (
+    <section>
     <StylesCliente>
       <table>
         <thead>
@@ -12,7 +13,6 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
             <td>Nome</td>
             <td>{nome}</td>
           </tr>
-
           <tr>
             <td>Fone</td>
             <td>{telefone}</td>
@@ -36,6 +36,7 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
         <button onClick={() => handleAbrirModalDelete(id)} >Excluir</button>
       </div>
     </StylesCliente>
+    </section>
   )
 
 }
@@ -43,8 +44,8 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
 export default Cliente
 
 const StylesCliente = styled.li`
-  width: 100%;
-  padding: 12px;
+  width: 500px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,5 +56,9 @@ const StylesCliente = styled.li`
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  section{
+    display: flex;
   }
 `
