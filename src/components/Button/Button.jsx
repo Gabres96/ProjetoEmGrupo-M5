@@ -32,7 +32,7 @@ const StyleButton = styled.button`
 
 const PrimaryButton = styled(StyleButton)`
   width: ${props => props.width ? props.width : 'fit-content'};
-   background-color: ${(props) => props.theme.purple600};
+   background-color: ${(props) => props.theme.purple500};
    border: none; 
    color: ${(props) => props.theme.white};
    :hover{
@@ -40,7 +40,7 @@ const PrimaryButton = styled(StyleButton)`
   }
 `
 const SecondaryButton = styled(StyleButton)`
-   background: transparent;
-   border: 1px solid ${(props) => props.theme.purple600}; 
+    background-color: ${(props) => props.theme.purple500};
+   border: 1px solid ${(props) => props.theme.purple200}; 
    color: ${(props) => props.theme.purple200};
 `
