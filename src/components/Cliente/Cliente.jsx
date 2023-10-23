@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Button from '../Button/Button'
 const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarCliente, handleAbrirModalDelete }) => {
 
   return (
@@ -32,8 +32,8 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
         </tbody>
       </table>
       <div className={'btn'}>
-        <button onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}>Editar</button>
-        <button onClick={() => handleAbrirModalDelete(id)} >Excluir</button>
+        <Button texto ="editar" variant ="third" onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}/>
+        <Button texto ="excluir" variant ="third" onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}/>
       </div>
     </StylesCliente>
     </section>
