@@ -32,8 +32,8 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
         </tbody>
       </table>
       <div className={'btn'}>
-        <Button texto ="editar" variant ="third" onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}/>
-        <Button texto ="excluir" variant ="third" onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}/>
+        <Button texto ="Editar" variant ="third" onClick={() => handleEditarCliente({ id, nome, telefone, email, cnpj, endereco })}/>
+        <Button texto ="Excluir" variant ="third" onClick={() => handleAbrirModalDelete(id)}/>
       </div>
     </StylesCliente>
     </section>
