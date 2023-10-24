@@ -1,21 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Cliente from "./pages/Clientes/Clientes";
 import { ThemeProvider } from "styled-components";
 import { tema } from "./style/theme";
 import { GlobalStyle } from "./style/GlobalStyle";
-import { Home } from "./pages/Home/Home";
+import Clientes from "./pages/Clientes/Clientes";
+import Login from "./components/Login/Login";
 
 function App() {
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={tema}>
         <GlobalStyle />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cliente" element={<Cliente />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/cliente" element={<Clientes />} />
+          </Routes>
       </ThemeProvider>
     </BrowserRouter>
+    
   );
 }
 
