@@ -5,7 +5,8 @@ import Logo from "../Logo/Logo";
 const Header = () => {
   return (
     <S.StyleHeader>
-      <Logo>
+      <Logo/>
+      <h1>DataDynamo</h1>
         <nav>
           <ul>
             <li>
@@ -20,7 +21,6 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-      </Logo>
     </S.StyleHeader>
   )
 }
