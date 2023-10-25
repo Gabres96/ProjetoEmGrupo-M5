@@ -5,23 +5,42 @@ export const StyleContainerLogin = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${(p) => p.theme.blue500};
+  gap: 120px;
+  background-image: radial-gradient(
+    circle at -20.44% 56.16%,
+    #546c6c 0,
+    #4f605f 16.67%,
+    #47504e 33.33%,
+    #3c3c3c 50%,
+    #30292c 66.67%,
+    #271b20 83.33%,
+    #1f1119 100%
+  );
 
+  .containerLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  logo {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 50px;
+    color: ${(props) => props.theme.white};
+  }
   > .content {
     display: flex;
     padding: 48px;
     height: fit-content;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
     border-radius: 16px;
-    background: ${(p) => p.theme.white50};
+    background-color: ${(props) => props.theme.white};
     box-shadow: -4px -4px 8px 0px rgba(0, 0, 0, 0.25),
       4px 4px 8px 0px rgba(0, 0, 0, 0.25);
 
     > form {
-      border-radius: 16px;
-      background: ${(p) => p.theme.white200};
-      box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
       display: flex;
       padding: 24px;
       flex-direction: column;
