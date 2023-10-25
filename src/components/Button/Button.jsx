@@ -18,7 +18,6 @@ const StyleButton = styled.button`
   box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 12px 48px;
   align-items: center;
-  font-family: "Roboto", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -48,10 +47,10 @@ const SecondaryButton = styled(StyleButton)`
 const ThirdButton = styled(StyleButton)`
 width:auto;
   border-radius: 8px;
+  background-color: ${(props) => props.theme.white};
   box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 12px 48px;
   align-items: center;
-  font-family: "Roboto", sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -59,6 +58,7 @@ width:auto;
   transition: background .3s;
 
   &:hover{
-    background-color: ${(props) => props.theme.purple200};
+    background-color: ${(props) => props.theme.gray100};
+    color: ${(props) => props.theme.white};
   }
 `
