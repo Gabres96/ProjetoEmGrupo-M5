@@ -6,6 +6,8 @@ import Modal from './../../components/Modal/Modal';
 import Button from './../../components/Button/Button';
 import Notificacao from './../../components/Notificacao/Notificacao';
 import Input from "../../components/Input/Input.jsx";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -112,6 +114,7 @@ const Clientes = () => {
 
   return (
     <>
+    <Header />
     <Topo>
       <h2>Clientes</h2>
       <Button
@@ -183,6 +186,7 @@ const Clientes = () => {
           open={abrirNotificacao}
         />
       }
+      <Footer/>
     </>
     
   )

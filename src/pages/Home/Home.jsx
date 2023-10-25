@@ -1,7 +1,5 @@
-import Header from "../../components/Header/Header";
-import { Contratos } from "../Contratos/Contratos";
 import styled from "styled-components";
-import Clientes from "../Clientes/Clientes";
+import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 export const Home = () => {
 

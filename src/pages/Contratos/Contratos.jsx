@@ -6,9 +6,11 @@ import { deleteContrato, getContratos, postContrato, putContrato } from "../../s
 import Modal from "../../components/Modal/Modal"
 import { getClientes } from "../../service/api"
 import Notificacao from "../../components/Notificacao/Notificacao"
-
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 export const Contratos = () => {
+  
   const [contratos, setContratos] = useState([])
   const [clientes, setClientes] = useState([])
   const [idContrato, setIdContrato] = useState('')
@@ -135,6 +137,7 @@ export const Contratos = () => {
 
   return (
     <>
+    <Header/>
       <Topo>
         <h2>Contratos</h2>
         <Button
@@ -265,7 +268,7 @@ export const Contratos = () => {
           open={abrirNotificacao}
         />
       }
-
+<Footer/>
     </>
   )
 }
