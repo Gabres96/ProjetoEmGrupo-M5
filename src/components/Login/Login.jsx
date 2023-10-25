@@ -2,7 +2,7 @@ import { StyleContainerLogin } from './login.styles.js'
 import Button from '../Button/Button'
 import { loginUsuario } from '../../service/api.js'
 import { useNavigate } from 'react-router-dom'
-
+import Logo from "../Logo/Logo";
 const Login = () => {
   const navigate = useNavigate()
 
@@ -31,11 +31,15 @@ const Login = () => {
 
   return (
     <StyleContainerLogin>
+      <div className='containerLogo'>
+      <Logo />
+      <h1 className='logo'>DataDynamo</h1>
+      </div>
       <div className="content">
         <h2>Login</h2>
         <form>
-          <input type="text" name='email' id='email' onChange={handleEmail}/>
-          <input type="text" name='password' id='password' onChange={handlePassword}/>
+          <input type="text" name='email' id='email' onChange={handleEmail} placeholder='E-mail'/>
+          <input type="text" name='password' id='password' onChange={handlePassword} placeholder='Senha'/>
         
           <Button
             texto="Entrar"
