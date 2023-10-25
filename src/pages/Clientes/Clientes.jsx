@@ -121,7 +121,7 @@ const Clientes = () => {
     </Topo>
       <StylesCliente>
         <ul>
-          {clientes.length === 0 ? (<p>Carragando</p>) : (
+          {clientes.length === 0 ? (<p>Carregando</p>) : (
             clientes.map((cliente) => (
               <Cliente
                 key={cliente._id}
