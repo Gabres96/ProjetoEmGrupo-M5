@@ -1,8 +1,78 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# DataDynamo
 
-Currently, two official plugins are available:
+A DataDynamo é uma empresa que fabrica softwares, sites e apps.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Neste trabalho apresentaremos uma API de software interno, onde você pode fazer o gerenciamento de contratos e clientes.
+
+
+# Tecnologias Usadas no Projeto:
+
+- Node.js // MongoDB // Postman //React + Vite
+
+- Dependências:  // Axios // React-icons // react-router-dom // styled-components //
+
+
+# Deploy:
+
+#### Para você conseguir realizar o deploy, tenha o NodeJS instalado, posteriormente siga estes passos:
+
+
+ - Clone o repositório em uma pasta ou na sua área de trabalho utilizando o comando abaixo dentro do NodeJS:
+ ```
+ - git clone https://github.com/Gabres96/ProjetoEmGrupo-M5.git 
+ ```
+- Assim que clonado, dentro do terminal da plataforma que você está utilizando para rodar o projeto (exemplo vscode), execute o comando abaixo para instalar as dependências para que o projeto rode:
+
+```
+- npm i OU npm install;
+```
+ - Após instalado as dependências, você precisará rodar o projeto, e para isso, você precisa rodar o comando abaixo:
+
+ ```
+- npm run dev;
+ ```
+
+ - Após rodar o projeto, você deve copiar o link do projeto que foi fornecido no terminal em local e colar no seu navegador para que possa aparecer na sua tela.
+ 
+
+
+
+
+
+
+# Referências:
+```
+- Nodejs
+ https://nodejs.org/en
+ ```
+ ```
+ - Mongodb
+https://www.mongodb.com/pt-br
+ ```
+ ```
+ - Vitejs
+https://vitejs.dev/guide/
+ ```
+
+
+# Autores Do Projeto:
+
+```
+- Gabriel Elias
+Perfil no linedink: 
+https://www.linkedin.com/in/gabriel-elias-439340160/
+```
+
+```
+- Joshua
+Perfil No linkedin:
+https://www.linkedin.com/in/jhoshuan-christopher-7687b2191/
+```
+
+```
+- Priscila Chueryz
+Perfil no linedin:
+https://www.linkedin.com/in/priscilachueryz/
+```
+
