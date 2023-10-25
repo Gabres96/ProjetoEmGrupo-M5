@@ -35,7 +35,7 @@ const StylesModal = styled.div`
   top: 50%;
   left: 50%; 
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: ${(props) => props.theme.white};
 `;
 
 const StylesContentModal = styled.div`
