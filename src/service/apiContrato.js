@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({
+const apiContrato = axios.create({
   baseURL: 'https://apidatadynamo.onrender.com/',
   // baseURL: 'http://localhost:3000/',
   headers: {
@@ -8,14 +8,15 @@ const api = axios.create({
   }
 })
 
-export const getClientes = async () => {
-  const resposta = await api.get('/cliente')
+export const getContratos = async () => {
+  const resposta = await apiContrato.get('/contrato')
+  console.log(resposta.data)
   return (resposta.data)
 }
 
-export const postCliente = async (body) => {
+export const postContrato = async (body) => {
   try {
-    const resposta = await api.post('/cliente/criar', body)
+    const resposta = await apiContrato.post('/contrato/criar', body)
     return resposta.data
   } catch (error) {
     if (error.response) {
@@ -31,9 +32,9 @@ export const postCliente = async (body) => {
   }
 }
 
-export const putCliente = async (idCliente, body) => {
+export const putContrato = async (idContrato, body) => {
   try {
-    const resposta = await api.put(`/cliente/edit/${idCliente}`, body)
+    const resposta = await apiContrato.put(`/contrato/editar/${idContrato}`, body)
     return resposta.data
   } catch (error) {
     if (error.response) {
@@ -49,9 +50,9 @@ export const putCliente = async (idCliente, body) => {
   }
 }
 
-export const deleteCliente = async (idCliente) => {
+export const deleteContrato = async (idContrato) => {
   try {
-    const resposta = await api.delete(`/cliente/delete/${idCliente}`)
+    const resposta = await apiContrato.delete(`/contrato/delete/${idContrato}`)
     return resposta.data
   } catch (error) {
     if (error.response) {
@@ -67,13 +68,4 @@ export const deleteCliente = async (idCliente) => {
   }
 }
 
-export const loginUsuario = async (payload) => {
-  try {
-    await api.post('/login', payload)
-    return true
-  } catch (error) {
-    return false
-  }
-}
-
-export default api
+export default apiContrato
