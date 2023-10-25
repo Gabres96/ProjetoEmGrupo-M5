@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
 export const StyleHeader = styled.header`
-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
   display: flex;
   align-items: center;
   position: relative;
   top: 0;
-  background-color: ${(props) => props.theme.gray100};  
   height: 130px;
   padding: 30px;
   width: 100%;
-  
+  background-image: radial-gradient(circle at -20.44% 56.16%, #546c6c 0, #4f605f 16.67%, #47504e 33.33%, #3c3c3c 50%, #30292c 66.67%, #271b20 83.33%, #1f1119 100%);
 
   h1{
     font-family: 'Chakra Petch', sans-serif;
@@ -31,15 +30,18 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
     line-height: normal;
     color: ${(props) => props.theme.white};
     transform: scale(1.1);
+    background-color: transparent;
   }
   nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 70%;
+    background-color: transparent;
   }
-
+  
   nav ul {
+    background-color: transparent;
     display: flex;
     align-items: center;
     color: ${(props) => props.theme.white};
@@ -54,10 +56,12 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
     letter-spacing: 2px;
     font-weight: 300;
     color: ${(props) => props.theme.white};
+    background-color: transparent;
   }
 
   nav ul li:hover {
     transform: scale(0.9);
+    background-color: transparent;
   }
 
 `
