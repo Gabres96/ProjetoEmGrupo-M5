@@ -1,6 +1,7 @@
 export const tema = {
   white: '#f8f8ff',
   red: '#A3151A',
+  gray50: '#eee',
   gray100: '#3c3c3c',
   purple: '#7C3AED',
   purple100: '#9d4cac',
