@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto Mono', monospace;
-    background-color: ${(props) => props.theme.white};
+  
   }
 
   html,
