@@ -121,7 +121,6 @@ const Clientes = () => {
     </Topo>
       <StylesCliente>
         <ul>
-
           {clientes.length === 0 ? (<p>Carragando</p>) : (
             clientes.map((cliente) => (
               <Cliente
@@ -170,6 +169,7 @@ const Clientes = () => {
 
         <button onClick={handlePutCliente}>{'EDITAR'}</button>
       </Modal>
+      {/* MODAL DE DELETAR CLIENTE  */}
       <Modal open={modalDelete} title={'Excluir'} fechaModal={() => setModalDelete(false)}>
         <h3>Você deseja realmente excluir esse cliente?</h3>
         <Button texto={'sim'} variant={'primary'} onClick={handleDeleteCliente} />

@@ -4,6 +4,8 @@ import { tema } from "./style/theme";
 import { GlobalStyle } from "./style/GlobalStyle";
 import Clientes from "./pages/Clientes/Clientes";
 import Login from "./components/Login/Login";
+import { Home } from './pages/Home/Home';
+import { Contratos } from "./pages/Contratos/Contratos";
 
 function App() {
 
@@ -13,7 +15,9 @@ function App() {
         <GlobalStyle />
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/cliente" element={<Clientes />} />
+            <Route path="/contrato" element={<Contratos />} />
           </Routes>
       </ThemeProvider>
     </BrowserRouter>
