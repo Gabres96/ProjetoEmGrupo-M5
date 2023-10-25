@@ -7,6 +7,7 @@ export const Topo = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 24px;
+  background-color:${(props) => props.theme.gray100};
 `
 
 export const StylesCliente = styled.main`
@@ -17,6 +18,8 @@ export const StylesCliente = styled.main`
   gap: 24px;
   padding: 24px;
   overflow-x: hidden;
+  background-color: ${(props) => props.theme.gray100};
+
 
   > section {
     width: 100%;
