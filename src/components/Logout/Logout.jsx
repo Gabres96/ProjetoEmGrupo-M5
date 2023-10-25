@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-export const Logout = () => {
+import { BiLogOut } from "react-icons/bi";
+import styled from 'styled-components';
+const Logout = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -9,7 +11,17 @@ export const Logout = () => {
 
   return (
     <>
-      <button onClick={handleLogout}>Sair</button>
+      <Icon>
+      <BiLogOut onClick={handleLogout}  className='icon' />
+      </Icon>
     </>
   )
 }
+export default Logout;
+
+const Icon = styled(BiLogOut)`
+  font-size: 50px;
+  cursor: pointer;
+  color: ${(props) => props.theme.purple};
+  background-color: transparent;
+`;

@@ -22,7 +22,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
   }
   .link, nav, ul, li, nav ul li:hover {
     background-color: ${(props) => props.theme.gray100};
-    padding-left: 20%;
+    padding-left: 10%;
   }
 
   .link{
@@ -32,6 +32,12 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
     color: ${(props) => props.theme.white};
     transform: scale(1.1);
   }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+  }
 
   nav ul {
     display: flex;
@@ -39,6 +45,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
     color: ${(props) => props.theme.white};
     gap: 25px;
     font-size: 20px;
+    margin-right: 200px;
   }
 
   nav ul li {
