@@ -10,23 +10,23 @@ const Cliente = ({ id, nome, telefone, email, cnpj, endereco, handleEditarClient
         </thead>
         <tbody>
           <tr>
-            <td>Nome</td>
+            <td>Nome: </td>
             <td>{nome}</td>
           </tr>
           <tr>
-            <td>Fone</td>
+            <td>Fone: </td>
             <td>{telefone}</td>
           </tr>
           <tr>
-            <td>E-mail</td>
+            <td>E-mail: </td>
             <td>{email}</td>
           </tr>
           <tr>
-            <td>CNPJ</td>
+            <td>CNPJ: </td>
             <td>{cnpj}</td>
           </tr>
           <tr>
-            <td>Endereço</td>
+            <td>Endereço: </td>
             <td>{endereco}</td>
           </tr>
         </tbody>
