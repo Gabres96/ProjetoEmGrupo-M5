@@ -16,14 +16,14 @@ export const StyleContainerLogin = styled.main`
     #271b20 83.33%,
     #1f1119 100%
   );
-
+  
   .containerLogo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  logo {
+  .logo {
     font-family: "Chakra Petch", sans-serif;
     font-size: 50px;
     color: ${(props) => props.theme.white};
