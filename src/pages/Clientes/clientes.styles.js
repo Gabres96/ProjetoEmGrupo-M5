@@ -8,6 +8,11 @@ export const Topo = styled.div`
   justify-content: space-between;
   padding: 24px;
   background-color:${(props) => props.theme.gray100};
+
+  h2{
+    color:${(props) => props.theme.white};
+
+  }
 `
 
 export const StylesCliente = styled.main`
