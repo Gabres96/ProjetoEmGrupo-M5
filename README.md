@@ -16,9 +16,9 @@ Neste trabalho apresentaremos uma API de software interno, onde fazemos o gerenc
 # Deploy:
 
 ## Render:
-- [ Rota login ]-(https://apidatadynamo.onrender.com/login)
-- [ Rota cliente ]-(Rhttps://apidatadynamo.onrender.com/cliente)
-- [ Rota contrato ]-(https://apidatadynamo.onrender.com/contrato)
+- [ Rota login ](https://apidatadynamo.onrender.com/login)
+- [ Rota cliente ](https://apidatadynamo.onrender.com/cliente)
+- [ Rota contrato ](https://apidatadynamo.onrender.com/contrato)
 
 
 
