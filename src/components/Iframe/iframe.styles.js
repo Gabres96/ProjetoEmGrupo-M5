@@ -11,7 +11,7 @@ iframe{
     display: flex;
     margin: 10px;
     background-color: transparent;
-    width:800px;
+    width:1000px;
     height:80vh;
 }`
 
