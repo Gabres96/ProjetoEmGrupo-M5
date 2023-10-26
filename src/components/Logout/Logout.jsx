@@ -11,13 +11,21 @@ const Logout = () => {
 
   return (
     <>
-      <Icon>
-      <BiLogOut onClick={handleLogout}  className='icon' />
-      </Icon>
+      <Button onClick={handleLogout}>
+        <Icon>
+          <BiLogOut />
+        </Icon>
+      </Button>
     </>
   )
 }
 export default Logout;
+
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
 
 const Icon = styled(BiLogOut)`
   font-size: 50px;
