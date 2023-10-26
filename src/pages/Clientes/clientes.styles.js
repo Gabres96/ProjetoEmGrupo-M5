@@ -29,7 +29,7 @@ export const StylesCliente = styled.main`
   > section {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
   }
 
@@ -37,11 +37,11 @@ export const StylesCliente = styled.main`
     width: 100%;
     background-color: ${(props) => props.theme.green50};
     border-radius: 8px;
-    padding: 24px;
+    padding: 24px 24px 24px 5%;
     gap: 12px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     > li {
       width: 30%;
       padding: 12px;
