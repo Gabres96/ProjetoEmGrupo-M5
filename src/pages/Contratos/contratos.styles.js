@@ -43,7 +43,7 @@ export const StylesContratos = styled.main`
     flex-wrap: wrap;
     justify-content: center;
     > li {
-      width: 30%;
+      width: 544px;
       padding: 12px;
       display: flex;
       justify-content: space-between;
