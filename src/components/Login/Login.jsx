@@ -39,7 +39,7 @@ const Login = () => {
         <h2>Login</h2>
         <form>
           <input type="text" name='email' id='email' onChange={handleEmail} placeholder='E-mail'/>
-          <input type="text" name='password' id='password' onChange={handlePassword} placeholder='Senha'/>
+          <input type="password" name='password' id='password' onChange={handlePassword} placeholder='Senha'/>
         
           <Button
             texto="Entrar"
