@@ -31,7 +31,7 @@ const StyleNotificacao = styled.div`
   &.sucesso{
     border: 2px solid ${props => props.theme.green500};
     background: ${props => props.theme.green50};
-    color: ${props => props.theme.green500};
+    color: ${props => props.theme.white};
   }
 
  &.falha{
