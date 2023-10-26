@@ -48,5 +48,9 @@ export const StylesCliente = styled.main`
       background-color: ${props => props.theme.white50};
     }
   }
+  .botaoEditar{
+    background-color: ${props => props.theme.purple200};
+  }
 
 `
+

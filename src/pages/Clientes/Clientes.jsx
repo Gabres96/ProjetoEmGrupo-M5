@@ -1,60 +1,66 @@
 import { useEffect, useState } from "react";
 import { StylesCliente, Topo } from "./clientes.styles.js";
 import Cliente from "../../components/Cliente/Cliente.jsx";
-import { deleteCliente, getClientes, postCliente, putCliente } from "../../service/api.js";
-import Modal from './../../components/Modal/Modal';
-import Button from './../../components/Button/Button';
-import Notificacao from './../../components/Notificacao/Notificacao';
+import {
+  deleteCliente,
+  getClientes,
+  postCliente,
+  putCliente,
+} from "../../service/api.js";
+import Modal from "./../../components/Modal/Modal";
+import Button from "./../../components/Button/Button";
+import Notificacao from "./../../components/Notificacao/Notificacao";
 import Input from "../../components/Input/Input.jsx";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
-  const [modalCriarCliente, setModalCriarCliente] = useState(false)
-  const [modalEditarCliente, setModalEditarCliente] = useState(false)
+  const [modalCriarCliente, setModalCriarCliente] = useState(false);
+  const [modalEditarCliente, setModalEditarCliente] = useState(false);
   const [data, setData] = useState({
-    nome: '',
-    telefone: '',
-    email: '',
-    cnpj: '',
-    endereco: ''
-  })
-  const [idCliente, setIdCliente] = useState('')
+    nome: "",
+    telefone: "",
+    email: "",
+    cnpj: "",
+    endereco: "",
+  });
+  const [idCliente, setIdCliente] = useState("");
   const [infosNotificacao, setInfosNotificacao] = useState({
-    tipo: '',
-    texto: ''
-  })
-  const [modalDelete, setModalDelete] = useState(false)
-  const [abrirNotificacao, setAbrirNotificacao] = useState(false)
+    tipo: "",
+    texto: "",
+  });
+  const [modalDelete, setModalDelete] = useState(false);
+  const [abrirNotificacao, setAbrirNotificacao] = useState(false);
 
-  const valueInput = (e) => setData({ ...data, [e.target.name]: e.target.value });
+  const valueInput = (e) =>
+    setData({ ...data, [e.target.name]: e.target.value });
 
   const handleGetClientes = async () => {
     try {
-      const resposta = await getClientes()
-      setClientes(resposta)
+      const resposta = await getClientes();
+      setClientes(resposta);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-  const handlePostCliente = async () => {   
+  const handlePostCliente = async () => {
     try {
-      await postCliente(data)
-      setModalCriarCliente(false)
-      handleGetClientes()
+      await postCliente(data);
+      setModalCriarCliente(false);
+      handleGetClientes();
       setInfosNotificacao({
-        tipo: 'sucesso',
-        texto: 'Cliente adicionado com sucesso'
-      })
-      handleGetClientes()
-      setAbrirNotificacao(true)
-      setModalCriarCliente(false)
+        tipo: "sucesso",
+        texto: "Cliente adicionado com sucesso",
+      });
+      handleGetClientes();
+      setAbrirNotificacao(true);
+      setModalCriarCliente(false);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const handleEditarCliente = async (cliente) => {
     setData({
@@ -63,68 +69,71 @@ const Clientes = () => {
       telefone: cliente.telefone,
       email: cliente.email,
       cnpj: cliente.cnpj,
-      endereco: cliente.endereco
-    })
-    setIdCliente(cliente.id)
-    setModalEditarCliente(true)
-  }
+      endereco: cliente.endereco,
+    });
+    setIdCliente(cliente.id);
+    setModalEditarCliente(true);
+  };
 
   const handlePutCliente = async () => {
     try {
-      await putCliente(idCliente, data)
-      setModalEditarCliente(false)
-      handleGetClientes()
+      await putCliente(idCliente, data);
+      setModalEditarCliente(false);
+      handleGetClientes();
       setInfosNotificacao({
-        tipo: 'sucesso',
-        texto: 'Cliente atualizado com sucesso'
-      })
-      handleGetClientes()
-      setAbrirNotificacao(true)
-      setModalEditarCliente(false)
+        tipo: "sucesso",
+        texto: "Cliente atualizado com sucesso",
+      });
+      handleGetClientes();
+      setAbrirNotificacao(true);
+      setModalEditarCliente(false);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const handleDeleteCliente = async () => {
     try {
-      await deleteCliente(idCliente)
-      setModalDelete(false)
-      handleGetClientes()
+      await deleteCliente(idCliente);
+      setModalDelete(false);
+      handleGetClientes();
       setInfosNotificacao({
-        tipo: 'sucesso',
-        texto: 'Cliente deletado com sucesso'
-      })
-      handleGetClientes()
-      setAbrirNotificacao(true)
-      setModalDelete(false)
-    }catch (error) {
-      console.log(error)
+        tipo: "sucesso",
+        texto: "Cliente deletado com sucesso",
+      });
+      handleGetClientes();
+      setAbrirNotificacao(true);
+      setModalDelete(false);
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   const handleAbrirModalDelete = (id) => {
-    setIdCliente(id)
-    setModalDelete(true)
-  }
+    setIdCliente(id);
+    setModalDelete(true);
+  };
 
   useEffect(() => {
-    handleGetClientes()
-  }, [])
+    handleGetClientes();
+  }, []);
 
   return (
     <>
-    <Header />
-    <Topo>
-      <h2>Clientes</h2>
-      <Button
-      onClick={() => setModalCriarCliente(true)}
-      texto={"Adicionar Cliente"}
-      variant='primary' />
-    </Topo>
+      <Header />
+      <Topo>
+        <h2>Clientes</h2>
+        <Button
+          onClick={() => setModalCriarCliente(true)}
+          texto={"Adicionar Cliente"}
+          variant="primary"
+        />
+      </Topo>
       <StylesCliente>
         <ul>
-          {clientes.length === 0 ? (<p>Carregando</p>) : (
+          {clientes.length === 0 ? (
+            <p>Carregando</p>
+          ) : (
             clientes.map((cliente) => (
               <Cliente
                 key={cliente._id}
@@ -137,60 +146,101 @@ const Clientes = () => {
                 handleAbrirModalDelete={handleAbrirModalDelete}
                 handleEditarCliente={handleEditarCliente}
               />
-            )
-          ))}
+            ))
+          )}
         </ul>
       </StylesCliente>
 
       {/* MODAL DE CRIAR CLIENTE  */}
-      <Modal title={'Adicionar Cliente'} open={modalCriarCliente} fechaModal={() => setModalCriarCliente(false)}>
+      <Modal
+        title={"Adicionar Cliente"}
+        open={modalCriarCliente}
+        fechaModal={() => setModalCriarCliente(false)}
+      >
         <label htmlFor="">Nome</label>
         <Input type="text" name="nome" onChange={valueInput} />
         <label htmlFor="">Fone</label>
         <Input type="fone" name="telefone" onChange={valueInput} />
-        <label htmlFor="">E-mail</label> 
+        <label htmlFor="">E-mail</label>
         <Input type="email" name="email" onChange={valueInput} />
         <label htmlFor="">CNPJ</label>
         <Input type="text" name="cnpj" onChange={valueInput} />
         <label htmlFor="">Endereço</label>
         <Input type="text" name="endereco" onChange={valueInput} />
 
-        <button onClick={handlePostCliente}>{'ADICIONAR'}</button>
+        <button onClick={handlePostCliente}>{"ADICIONAR"}</button>
       </Modal>
       {/* MODAL DE EDITAR CLIENTE  */}
-      <Modal title={'Editar Cliente'} open={modalEditarCliente} fechaModal={() => setModalEditarCliente(false)}>
+      <Modal
+        title={"Editar Cliente"}
+        open={modalEditarCliente}
+        fechaModal={() => setModalEditarCliente(false)}
+      >
         <label htmlFor="">Nome</label>
-        <input type="text" name="nome" defaultValue={data.nome} onChange={valueInput} />
+        <input
+          type="text"
+          name="nome"
+          defaultValue={data.nome}
+          onChange={valueInput}
+        />
         <label htmlFor="">Fone</label>
-        <input type="text" name="telefone" defaultValue={data.telefone} onChange={valueInput} />
-        <label htmlFor="">E-mail</label> 
-        <input type="email" name="email" defaultValue={data.email} onChange={valueInput} />
+        <input
+          type="text"
+          name="telefone"
+          defaultValue={data.telefone}
+          onChange={valueInput}
+        />
+        <label htmlFor="">E-mail</label>
+        <input
+          type="email"
+          name="email"
+          defaultValue={data.email}
+          onChange={valueInput}
+        />
         <label htmlFor="">CNPJ</label>
-        <input type="text" name="cnpj" defaultValue={data.cnpj} onChange={valueInput} />
+        <input
+          type="text"
+          name="cnpj"
+          defaultValue={data.cnpj}
+          onChange={valueInput}
+        />
         <label htmlFor="">Endereço</label>
-        <input type="text" name="endereco" defaultValue={data.endereco} onChange={valueInput} />
+        <input
+          type="text"
+          name="endereco"
+          defaultValue={data.endereco}
+          onChange={valueInput}
+        />
 
-        <button onClick={handlePutCliente}>{'EDITAR'}</button>
+        <Button texto={"Editar"} variant={"primary"} onClick={handlePutCliente} />
+
+    
       </Modal>
       {/* MODAL DE DELETAR CLIENTE  */}
-      <Modal open={modalDelete} title={'Excluir'} fechaModal={() => setModalDelete(false)}>
+      <Modal
+        open={modalDelete}
+        title={"Excluir"}
+        fechaModal={() => setModalDelete(false)}
+      >
         <h3>Você deseja realmente excluir esse cliente?</h3>
-        <Button texto={'sim'} variant={'primary'} onClick={handleDeleteCliente} />
+        <Button
+          texto={"sim"}
+          variant={"primary"}
+          onClick={handleDeleteCliente}
+        />
       </Modal>
 
-      {
-        abrirNotificacao && <Notificacao
+      {abrirNotificacao && (
+        <Notificacao
           texto={infosNotificacao.texto}
           tipo={infosNotificacao.tipo}
           fecharNotificacao={() => setAbrirNotificacao(false)}
           open={abrirNotificacao}
         />
-      }
-      <Footer/>
+      )}
+      <Footer />
     </>
-    
-  )
-}
+  );
+};
 
-
-export default Clientes
+export default Clientes;
