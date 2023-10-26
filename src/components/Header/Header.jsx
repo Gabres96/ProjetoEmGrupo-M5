@@ -6,8 +6,10 @@ import Logout from "../Logout/Logout";
 const Header = () => {
   return (
     <S.StyleHeader>
-      <Logo />
-      <h1>DataDynamo</h1>
+      <Link className= {"logo"}to={"/home"}>
+        <Logo />
+        <h1>DataDynamo</h1>
+      </Link>
       <nav>
         <ul>
           <li>
@@ -22,7 +24,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-        <Logout />
+      <Logout />
     </S.StyleHeader>
   );
 };
