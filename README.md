@@ -22,9 +22,12 @@ Neste trabalho apresentaremos uma API de software interno, onde fazemos o gerenc
 
 ## Netlify
 -[Site - online](https://timely-kashata-a2a388.netlify.app/)
-###*Login*: admin@admin.com.br
-###*Senha*: 123456789
-
+```
+Login: admin@admin.com.br
+```
+```
+Senha: 123456789
+```
 
 
 #### Para você conseguir realizar o deploy, tenha o NodeJS instalado, posteriormente siga estes passos:
