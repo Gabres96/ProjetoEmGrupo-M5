@@ -11,6 +11,12 @@ export const StyleHeader = styled.header`
   width: 100%;
   background-image: radial-gradient(circle at -20.44% 56.16%, #546c6c 0, #4f605f 16.67%, #47504e 33.33%, #3c3c3c 50%, #30292c 66.67%, #271b20 83.33%, #1f1119 100%);
 
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
   h1{
     font-family: 'Chakra Petch', sans-serif;
     font-size: 50px;
