@@ -3,9 +3,16 @@ import styled from 'styled-components'
 export const Topo = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 24px;
+  background-color:${(props) => props.theme.gray100};
+
+  h2{
+    color:${(props) => props.theme.white};
+
+  }
 `
 
 export const StylesContratos = styled.main`
@@ -16,6 +23,8 @@ export const StylesContratos = styled.main`
   gap: 24px;
   padding: 24px;
   overflow-x: hidden;
+  background-color: ${(props) => props.theme.gray100};
+
 
   > section {
     width: 100%;
@@ -41,8 +50,12 @@ export const StylesContratos = styled.main`
       align-items: center;
       box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
       border-radius: 8px;
-      background-color: ${props => props.theme.white50};
+      background-color: ${props => props.theme.white};
     }
+  }
+  .botaoEditar{
+    background-color: ${props => props.theme.purple200};
   }
 
 `
+
