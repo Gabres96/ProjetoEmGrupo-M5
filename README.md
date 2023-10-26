@@ -3,7 +3,7 @@
 
 A DataDynamo é uma empresa que fabrica softwares, sites e apps.
 
-Neste trabalho apresentaremos uma API de software interno, onde você pode fazer o gerenciamento de contratos e clientes.
+Neste trabalho apresentaremos uma API de software interno, onde fazemos o gerenciamento de contratos e clientes.
 
 
 # Tecnologias Usadas no Projeto:
@@ -14,6 +14,13 @@ Neste trabalho apresentaremos uma API de software interno, onde você pode fazer
 
 
 # Deploy:
+
+## Render:
+- [ Rota login ](https://apidatadynamo.onrender.com/login)
+- [ Rota cliente ](https://apidatadynamo.onrender.com/cliente)
+- [ Rota contrato ](https://apidatadynamo.onrender.com/contrato)
+
+
 
 #### Para você conseguir realizar o deploy, tenha o NodeJS instalado, posteriormente siga estes passos:
 
@@ -38,9 +45,6 @@ Neste trabalho apresentaremos uma API de software interno, onde você pode fazer
 
 
 
-
-
-
 # Referências:
 ```
 - Nodejs
@@ -58,21 +62,9 @@ https://vitejs.dev/guide/
 
 # Autores Do Projeto:
 
-```
-- Gabriel Elias
-Perfil no linedink: 
-https://www.linkedin.com/in/gabriel-elias-439340160/
-```
 
-```
-- Joshua
-Perfil No linkedin:
-https://www.linkedin.com/in/jhoshuan-christopher-7687b2191/
-```
+- [Gabriel Elias - Linkedin](https://www.linkedin.com/in/gabriel-elias-439340160/)
+- [jhoshuan christopher - Linkedin](https://www.linkedin.com/in/jhoshuan-christopher-7687b2191/)
+- [Priscila Chueryz - Linkedin](https://www.linkedin.com/in/priscilachueryz/)
 
-```
-- Priscila Chueryz
-Perfil no linedin:
-https://www.linkedin.com/in/priscilachueryz/
-```
 
