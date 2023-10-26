@@ -37,6 +37,6 @@ const StyleNotificacao = styled.div`
  &.falha{
     border: 2px solid ${props => props.theme.red500};
     background: ${props => props.theme.red50};
-    color: ${props => props.theme.red500};
+    color: ${props => props.theme.white};
   }
 `
