@@ -31,12 +31,12 @@ const StyleNotificacao = styled.div`
   &.sucesso{
     border: 2px solid ${props => props.theme.green500};
     background: ${props => props.theme.green50};
-    color: ${props => props.theme.green500};
+    color: ${props => props.theme.white};
   }
 
  &.falha{
     border: 2px solid ${props => props.theme.red500};
     background: ${props => props.theme.red50};
-    color: ${props => props.theme.red500};
+    color: ${props => props.theme.white};
   }
 `

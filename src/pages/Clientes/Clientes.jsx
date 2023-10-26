@@ -10,7 +10,6 @@ import {
 import Modal from "./../../components/Modal/Modal";
 import Button from "./../../components/Button/Button";
 import Notificacao from "./../../components/Notificacao/Notificacao";
-import Input from "../../components/Input/Input.jsx";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
@@ -158,15 +157,15 @@ const Clientes = () => {
         fechaModal={() => setModalCriarCliente(false)}
       >
         <label htmlFor="">Nome</label>
-        <Input type="text" name="nome" onChange={valueInput} />
+        <input type="text" name="nome" onChange={valueInput} />
         <label htmlFor="">Fone</label>
-        <Input type="fone" name="telefone" onChange={valueInput} />
+        <input type="fone" name="telefone" onChange={valueInput} />
         <label htmlFor="">E-mail</label>
-        <Input type="email" name="email" onChange={valueInput} />
+        <input type="email" name="email" onChange={valueInput} />
         <label htmlFor="">CNPJ</label>
-        <Input type="text" name="cnpj" onChange={valueInput} />
+        <input type="text" name="cnpj" onChange={valueInput} />
         <label htmlFor="">Endereço</label>
-        <Input type="text" name="endereco" onChange={valueInput} />
+        <input type="text" name="endereco" onChange={valueInput} />
 
         <button onClick={handlePostCliente}>{"ADICIONAR"}</button>
       </Modal>
