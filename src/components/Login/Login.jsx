@@ -13,7 +13,7 @@ const Login = () => {
     const resposta = await loginUsuario({ email, password })
 
     if(resposta){
-      navigate('/contrato')
+      navigate('/home')
     }else{
       alert('Email ou senha incorretos')
     }
