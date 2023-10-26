@@ -14,12 +14,12 @@ Neste trabalho apresentaremos uma API de software interno, onde fazemos o gerenc
 
 
 # Deploy:
- ```
-- Render:
+
+## Render:
 https://apidatadynamo.onrender.com/login
 https://apidatadynamo.onrender.com/cliente
 https://apidatadynamo.onrender.com/contrato
- ```
+
 
 
 #### Para você conseguir realizar o deploy, tenha o NodeJS instalado, posteriormente siga estes passos:
