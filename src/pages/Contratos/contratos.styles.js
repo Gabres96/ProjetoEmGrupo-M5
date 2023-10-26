@@ -50,7 +50,7 @@ export const StylesContratos = styled.main`
       align-items: center;
       box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
       border-radius: 8px;
-      background-color: ${props => props.theme.white};
+      background-color: ${props => props.theme.white50};
     }
   }
   .botaoEditar{
