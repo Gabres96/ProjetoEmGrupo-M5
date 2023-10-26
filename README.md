@@ -63,15 +63,8 @@ https://vitejs.dev/guide/
 # Autores Do Projeto:
 
 
-```
 - [Gabriel Elias - Linkedin](https://www.linkedin.com/in/gabriel-elias-439340160/)
-```
-
-```
 - [jhoshuan christopher - Linkedin](https://www.linkedin.com/in/jhoshuan-christopher-7687b2191/)
-```
+- [Priscila Chueryz - Linkedin](https://www.linkedin.com/in/priscilachueryz/)
 
-```
-[- Priscila Chueryz - Linkedin](https://www.linkedin.com/in/priscilachueryz/)
-```
 
