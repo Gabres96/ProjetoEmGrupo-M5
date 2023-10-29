@@ -76,3 +76,15 @@ https://vitejs.dev/guide/
 - [Priscila Chueryz - Linkedin](https://www.linkedin.com/in/priscilachueryz/)
 
 
+  # Apresentação
+
+- [Apresentação] - (https://prezi.com/view/dG4LQH3RLoiDMq1ffQTc/)
+
+  # Projetos da API de banco de dados:
+- [API1] - (https://github.com/SuayMack/modulo4-squad9/)
+- [API2] - (https://github.com/SuayMack/apiDataDynamo/)
+
+
+  
+
+
